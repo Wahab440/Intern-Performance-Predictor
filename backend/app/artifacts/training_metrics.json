@@ -1,0 +1,36 @@
+{
+  "rmse": 4.579380976368733,
+  "n_train": 192,
+  "n_test": 48,
+  "feature_importances": [
+    {
+      "feature": "efficiency_index",
+      "importance": 0.9207579449896214
+    },
+    {
+      "feature": "feedback_attendance_interaction",
+      "importance": 0.03365102181132283
+    },
+    {
+      "feature": "feedback_rating",
+      "importance": 0.025643721281107555
+    },
+    {
+      "feature": "task_completion_time_hours",
+      "importance": 0.01349642976855967
+    },
+    {
+      "feature": "attendance_percentage",
+      "importance": 0.003397288393281694
+    },
+    {
+      "feature": "attendance_strength",
+      "importance": 0.0030535937561068133
+    }
+  ],
+  "sample_labels": {
+    "excellent": "Excellent",
+    "average": "Average",
+    "struggling": "Struggling"
+  }
+}
