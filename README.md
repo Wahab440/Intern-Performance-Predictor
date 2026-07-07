@@ -101,6 +101,8 @@ Backend deployment steps on Railway:
 
 Railway will use the backend `railway.toml` file and build from [backend/Dockerfile](backend/Dockerfile), then start the FastAPI app on `$PORT`.
 
+The backend container uses Python 3.11 for the most reliable wheel support during build.
+
 Frontend deployment steps on Vercel:
 
 1. Import the same GitHub repo.
