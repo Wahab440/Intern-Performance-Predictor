@@ -90,7 +90,7 @@ If the API is not on `http://localhost:8000`, set `VITE_API_BASE_URL` in the fro
 Recommended setup:
 
 - Backend: Render web service using [render.yaml](render.yaml)
-- Frontend: Vercel or Netlify static site from the `frontend` folder
+- Frontend: Vercel static site from the `frontend` folder
 
 Backend deployment steps on Render:
 
@@ -105,6 +105,13 @@ Frontend deployment steps on Vercel:
 2. Set the project root to `frontend`.
 3. Add `VITE_API_BASE_URL` with the deployed backend URL.
 4. Deploy the site.
+
+The frontend already includes a [Vercel config](frontend/vercel.json) so client-side routes resolve to `index.html`.
+
+Use the example environment files if you want a quick template:
+
+- [backend/.env.example](backend/.env.example)
+- [frontend/.env.example](frontend/.env.example)
 
 Local deployment-style test:
 
