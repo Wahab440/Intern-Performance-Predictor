@@ -89,7 +89,7 @@ If the API is not on `http://localhost:8000`, set `VITE_API_BASE_URL` in the fro
 
 Recommended setup:
 
-- Backend: Railway free tier using [backend/railway.toml](backend/railway.toml)
+- Backend: Railway using [backend/railway.toml](backend/railway.toml) with the Dockerfile build
 - Frontend: Vercel static site from the `frontend` folder
 
 Backend deployment steps on Railway:
@@ -99,9 +99,7 @@ Backend deployment steps on Railway:
 3. Set `MONGODB_URI` only if you want prediction logging.
 4. Deploy and copy the public backend URL.
 
-Railway will use the backend `railway.toml` file and start the FastAPI app on `$PORT`.
-
-If Railway still generates a default build step, set the service build command to `python -m pip install -r requirements.txt`.
+Railway will use the backend `railway.toml` file and build from [backend/Dockerfile](backend/Dockerfile), then start the FastAPI app on `$PORT`.
 
 Frontend deployment steps on Vercel:
 
