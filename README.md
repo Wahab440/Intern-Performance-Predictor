@@ -85,6 +85,37 @@ npm run dev
 
 If the API is not on `http://localhost:8000`, set `VITE_API_BASE_URL` in the frontend environment.
 
+## Deployment
+
+Recommended setup:
+
+- Backend: Render web service using [render.yaml](render.yaml)
+- Frontend: Vercel or Netlify static site from the `frontend` folder
+
+Backend deployment steps on Render:
+
+1. Create a new Web Service from the GitHub repo.
+2. Use the root `render.yaml` file or point directly to the `backend` folder.
+3. Set `MONGODB_URI` only if you want prediction logging.
+4. Deploy and copy the public backend URL.
+
+Frontend deployment steps on Vercel:
+
+1. Import the same GitHub repo.
+2. Set the project root to `frontend`.
+3. Add `VITE_API_BASE_URL` with the deployed backend URL.
+4. Deploy the site.
+
+Local deployment-style test:
+
+```bash
+cd backend
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+cd ../frontend
+npm run build
+```
+
 ## Why this is hiring-manager friendly
 
 - Clean separation between training, inference, and presentation layers.
