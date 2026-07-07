@@ -89,15 +89,17 @@ If the API is not on `http://localhost:8000`, set `VITE_API_BASE_URL` in the fro
 
 Recommended setup:
 
-- Backend: Koyeb free tier using [backend/Dockerfile](backend/Dockerfile)
+- Backend: Railway free tier using [backend/railway.toml](backend/railway.toml)
 - Frontend: Vercel static site from the `frontend` folder
 
-Backend deployment steps on Koyeb:
+Backend deployment steps on Railway:
 
-1. Create a new app from the GitHub repo.
-2. Select the `backend` folder as the service source or use the Dockerfile directly.
+1. Create a new project from the GitHub repo.
+2. Set the service root to `backend`.
 3. Set `MONGODB_URI` only if you want prediction logging.
 4. Deploy and copy the public backend URL.
+
+Railway will use the backend `railway.toml` file and start the FastAPI app on `$PORT`.
 
 Frontend deployment steps on Vercel:
 
@@ -113,7 +115,7 @@ Use the example environment files if you want a quick template:
 - [backend/.env.example](backend/.env.example)
 - [frontend/.env.example](frontend/.env.example)
 
-If you prefer a simpler single-provider setup, you can also host the frontend on Vercel and point it to the Koyeb backend URL through `VITE_API_BASE_URL`.
+If you prefer a simpler single-provider setup, you can host the frontend on Vercel and point it to the Railway backend URL through `VITE_API_BASE_URL`.
 
 Local deployment-style test:
 
