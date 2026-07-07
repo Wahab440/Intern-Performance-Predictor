@@ -9,6 +9,7 @@ from .db import get_predictions_collection
 from .model import load_artifact
 from .predict import predict_performance
 from .schemas import HealthResponse, PerformanceInput, PredictionResponse
+from .utils import MODEL_PATH
 
 
 app = FastAPI(
@@ -51,7 +52,7 @@ def get_model_artifact() -> dict:
     if MODEL_ARTIFACT is None:
         try:
             MODEL_ARTIFACT = load_artifact()
-        except FileNotFoundError:
+        except Exception:
             from .train import train_model
 
             train_model()
@@ -61,16 +62,15 @@ def get_model_artifact() -> dict:
 
 @app.on_event("startup")
 def warm_model() -> None:
-    get_model_artifact()
+    try:
+        get_model_artifact()
+    except Exception:
+        pass
 
 
 @app.get("/health", response_model=HealthResponse)
 def health_check() -> HealthResponse:
-    artifact_ready = True
-    try:
-        get_model_artifact()
-    except Exception:
-        artifact_ready = False
+    artifact_ready = MODEL_PATH.exists()
     return HealthResponse(status="ok", model_ready=artifact_ready)
 
 
