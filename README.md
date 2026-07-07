@@ -101,6 +101,8 @@ Backend deployment steps on Railway:
 
 Railway will use the backend `railway.toml` file and start the FastAPI app on `$PORT`.
 
+If Railway still generates a default build step, set the service build command to `python -m pip install -r requirements.txt`.
+
 Frontend deployment steps on Vercel:
 
 1. Import the same GitHub repo.
