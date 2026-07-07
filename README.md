@@ -1,7 +1,6 @@
 # Intern Performance Predictor
 
-End-to-end demo for predicting intern performance from three operational signals:
-task completion time, feedback rating, and attendance percentage.
+End-to-end demo for predicting intern performance from three operational signals: task completion time, feedback rating, and attendance percentage.
 
 ## What this project does
 
